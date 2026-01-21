@@ -4,5 +4,40 @@
         <title> Help Me Decide! </title>
         <h1> Should I... </h1>
         <p> website to help with indecision. wip! </p>
+        <input type="text" id="questionInput" placeholder="What is your question?">
+        <button type="button" id="questionSubmit" onclick="displayMore()">Submit</button> 
+        <div id="proConInputs">        
+            <h2>Pros</h2>
+            <input type="text" id="proInput" placeholder="Enter all positives here">
+            <h2>Cons</h2>
+            <input type="text" placeholder="Enter all negatives here">
+        </div>
+        <button type="button" id="tempReset" onclick="reset()">Reset</button>
+
+        
     </head>
 </html>
+
+<script>
+let decisionState = {
+    question: "",
+    pros: [],
+    cons: [],
+    result: null
+}
+
+function displayMore() {
+    var submitButton = document.getElementById("questionSubmit");
+    submitButton.style.display = "none";
+    decisionState.question = document.getElementById("questionInput").value;
+    var proConList = document.getElementById("proConInputs");
+    proConList.style.display = "block";
+}
+
+function reset() {
+    var submitButton = document.getElementById("questionSubmit");
+    submitButton.style.display = "block";
+    var proConList = document.getElementById("proConInputs");
+    proConList.style.display = "none";
+}
+</script>
